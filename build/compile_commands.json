@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/xinyangcui/Service_1024/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -I/home/xinyangcui/Service_1024/include -g -std=gnu++11 -o CMakeFiles/Server_1024.dir/main.cpp.o -c /home/xinyangcui/Service_1024/main.cpp",
+  "file": "/home/xinyangcui/Service_1024/main.cpp"
+}
+]
