@@ -6,10 +6,11 @@
 #include <mutex>
 #include <sstream>
 #include <thread>
+#include <nlohmann/json.hpp>
 
 using namespace httplib;
 using namespace std;
-
+using json = nlohmann::json;
 
 const auto html = R"(
 <!DOCTYPE html>
@@ -40,9 +41,15 @@ const auto json_text = R"(
   }
 )";
 
+
+
+
 void ProcessHandler(const Request &req,Response &rsp){
-  cout << req.body << endl;
-  rsp.set_content(json_text,"*/*");
+  
+  auto req_json = json::parse(req.body);
+  cout<< req_json <<endl;
+  auto res_json = json::parse(json_text);
+  rsp.set_content(res_json.dump(),"*/*");
   rsp.status=200;
 }
 
